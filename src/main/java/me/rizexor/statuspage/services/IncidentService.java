@@ -54,4 +54,13 @@ public class IncidentService {
     public void deleteIncident(String id) {
         incidentRepository.deleteById(id);
     }
+
+    public Incident updateIncident(String id, Incident incident) {
+        return incidentRepository.findById(id).map(resultIncident -> {
+            resultIncident.setMessage(incident.getMessage());
+            resultIncident.setImpact(incident.getImpact());
+
+            return incidentRepository.save(resultIncident);
+        }).orElseThrow(IncidentNotFoundException::new);
+    }
 }

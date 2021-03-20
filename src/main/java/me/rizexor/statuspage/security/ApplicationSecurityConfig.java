@@ -13,6 +13,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+                .cors().disable().csrf().disable()
                 .authorizeRequests()
                 // .antMatchers("/api/v1/incidents/", "/api/v1/incidents/*", "/api/v1/components/", "/api/v1/components/*")
                 .antMatchers(HttpMethod.GET, "/api/v1/**")

@@ -21,8 +21,11 @@ public class Incident implements Serializable {
     private String id;
     @Column(nullable = false)
     private String message;
+    @Column(nullable = false)
+    private IncidentImpact impact;
     @OneToMany(targetEntity = IncidentReport.class, cascade = CascadeType.ALL)
     @JoinColumn(nullable = false, referencedColumnName = "id")
+    @OrderBy("updated DESC")
     private List<IncidentReport> incidentReports;
 
 }

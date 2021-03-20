@@ -27,6 +27,11 @@ public class IncidentController {
     }
 
     @PutMapping("{id}")
+    public Incident updateIncident(@PathVariable("id") String id, @RequestBody Incident incident) {
+        return incidentService.updateIncident(id, incident);
+    }
+
+    @PostMapping("{id}")
     public Incident addIncidentReport(@PathVariable("id") String id, @RequestBody IncidentReport incidentReport) {
         return incidentService.addIncidentReport(id, incidentReport);
     }

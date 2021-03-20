@@ -1,6 +1,7 @@
 package me.rizexor.statuspage.entities;
 
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
@@ -21,7 +22,8 @@ public class IncidentReport implements Serializable {
     private IncidentReportStatus status;
     @Column(nullable = false)
     private String message;
-    @UpdateTimestamp
+    @Column(nullable = false, updatable = false)
+    @CreationTimestamp
     private LocalDateTime updated;
 
 }
