@@ -50,4 +50,8 @@ public class IncidentService {
             return incidentRepository.save(incident);
         }).orElseThrow(IncidentNotFoundException::new);
     }
+
+    public void deleteIncident(String id) {
+        incidentRepository.deleteById(id);
+    }
 }

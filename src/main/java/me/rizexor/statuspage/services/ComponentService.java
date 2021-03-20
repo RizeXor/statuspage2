@@ -29,4 +29,8 @@ public class ComponentService {
             return componentRepository.save(component1);
         }).orElseThrow(ComponentNotFoundException::new);
     }
+
+    public void deleteComponent(Long id) {
+        componentRepository.deleteById(id);
+    }
 }

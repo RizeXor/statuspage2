@@ -29,4 +29,9 @@ public class ComponentController {
         return componentService.createComponent(component);
     }
 
+    @DeleteMapping("{id}")
+    public void deleteComponent(@PathVariable("id") Long id) {
+        componentService.deleteComponent(id);
+    }
+
 }
